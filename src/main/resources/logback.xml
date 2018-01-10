@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{MM-dd HH:mm:ss.SSS} %-5level %logger{20}:%line [%.11thread] [%X{domain}] - %m%n</pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="console"/>
+    </root>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.apache.commons.beanutils" level="WARN"/>
+</configuration>
