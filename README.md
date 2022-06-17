@@ -40,7 +40,8 @@ public class TestService {
 1. Write your service class and declare `@ratelimit`  on it
 2. Mark `@qpsrate'on the method you want to restrict. In order to restrict, you need to give a 'rate' value` The rate` value controls the total number of executions in one second
 3. Add the `@qpsrate 'comment to a method parameter. You do not need to give a' rate '. It will be calculated automatically。:
-     *1.* If the parameter is a number, the rate is that value。
+
+     *1.* If the parameter is a number, the rate is that value。<br/>
      *2.* If the parameter is an array, the rate is its size。
 
 no use spring framework 
