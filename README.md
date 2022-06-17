@@ -1,7 +1,13 @@
 ## Rate Limiter
-基于Spring Annotation的标准设计,开发人员*(==甚至开发小白==)*使用起来相当容易
-#### 怎样使用
-首先在需要限流的`service`加载如下Annotation :
+
+API Rate Limit Component in Java
+
+#### Description
+
+Based on the standard design of spring annotation, developers * (= = or even Xiaobai = =) * are quite easy to use
+
+#### How to use
+First, load the following annotation on the 'service' that needs current restriction:
 ```java
 @RateLimit
 public class TestService {
@@ -31,13 +37,14 @@ public class TestService {
     }
 }
 ```
-1. 书写你的`service`类并在之申明 `@RateLimit ` .
-2. 将`@QPSRate`标注在您想要限制的方法上，为了限制您需要给出`rate`值。`rate`值控制在一秒内执行的总数。
-3. 将`@QPSRate`注释添加到一个方法参数之外，您不必给出`rate`。它会自动计算。:
-     *1.* 如果参数是一个数字，速率就是那个值。
-     *2.* 如果参数是一个数组，那么速率就是它的大小。
+1. Write your service class and declare `@ratelimit`  on it
+2. Mark `@qpsrate'on the method you want to restrict. In order to restrict, you need to give a 'rate' value` The rate` value controls the total number of executions in one second
+3. Add the `@qpsrate 'comment to a method parameter. You do not need to give a' rate '. It will be calculated automatically。:
+     *1.* If the parameter is a number, the rate is that value。
+     *2.* If the parameter is an array, the rate is its size。
 
-### 无需 spring framework 使用
+no use spring framework 
+=======
 ```java
     @Test
     public void testSimple() throws Exception {
@@ -56,7 +63,8 @@ public class TestService {
         executorService.shutdown();
     }
 ```
-### 通过 spring framework 使用
+use spring framework
+======
 ```xml 
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -69,17 +77,17 @@ public class TestService {
 
 </beans>
 ```
-- 注意在Spring context中引用 `xmlns:rate="http://www.w3.org/schema/ratelimit`
-在Spring context中 schemaLocation 添加 `xmlns:rate="http://www.w3.org/schema/ratelimit.xsd` ，同时 `annotation-driven`扫描指定的`package` ，然后就可以正常使用起来了
+- Note the reference in the spring context `xmlns:rate="http://www.w3.org/schema/ratelimit`
+Add schemalocation in spring context`xmlns:rate="http://www.w3.org/schema/ratelimit.xsd` ，and  `annotation-driven`Scan specified `package` ，Then it can be used normally
 
 ```java
     @Resource
     private TestService service;
 ```
-使用 Spring framework 的`DI` 去注入你的 `service`
+Use 'DI' of spring framework to inject your 'service'`
 
-### 如何引用
-- **通过maven引入,依赖如下** 
+### How to reference
+- **Introduced through maven, the dependencies are as follows** 
 
 ```
       <groupId>com.thorinchen.rate.limiter</groupId>
